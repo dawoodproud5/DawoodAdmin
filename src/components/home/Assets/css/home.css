@@ -1,0 +1,50 @@
+.backGroundImageDesign{
+    background-image: url("../Images//Login_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.abdal_color {
+    background-image: linear-gradient(
+      135deg,
+      #7280ff 20%,
+      #f56772 80%
+        /* #00d989 37.67%,
+      #00bce1 49.91%,
+      #a139ff 64.37%,
+      #ff5558 73.27%,
+      #ff7500 81.62% */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .abdal_color1 {
+    background-image: linear-gradient(
+      135deg,
+      #f56772 20%,
+      #7280ff 80%
+        /* #00d989 37.67%,
+      #00bce1 49.91%,
+      #a139ff 64.37%,
+      #ff5558 73.27%,
+      #ff7500 81.62% */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .abdal_color2 {
+    background-image: linear-gradient(
+      135deg,
+      /*   
+      #F56772 20%,
+      #7280FF 80% */ #00d989 37.67%,
+      #00bce1 49.91%,
+      #a139ff 64.37%,
+      #ff5558 73.27%,
+      #ff7500 81.62%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

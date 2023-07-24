@@ -1,0 +1,22 @@
+.sideNavLinkDesign {
+    width: 90%;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 10px 0;
+    margin: 0 5px;
+}
+
+.sideNavLinkDesign:hover {
+    background-color: purple;
+    color: whitesmoke;
+}
+
+.active {
+    background-color: purple;
+   color: whitesmoke;
+   font-weight: bold;
+}

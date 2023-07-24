@@ -1,0 +1,24 @@
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  min-width: 300px;
+}
+
+input[type="text1"],
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  min-width: 650px;
+  min-height: 140px;
+}
+
+textarea {
+  resize: vertical;
+}
