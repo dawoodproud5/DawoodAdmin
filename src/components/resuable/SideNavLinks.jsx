@@ -45,6 +45,18 @@ const SideNavLinks = () => {
                 </span>
               </Link>
             </li>
+            <li className="flex justify-start items-center gap-2 text-lg">
+              <Link
+                to="/clients/email"
+                className={`sideNavLinkDesign ${
+                  location.pathname === "/clients/email" ? "active" : ""
+                }`}
+              >
+                <span className="d-flex align-items-center px-4">
+                  Clients Emails
+                </span>
+              </Link>
+            </li>
           </>
         ) : (
           <>
