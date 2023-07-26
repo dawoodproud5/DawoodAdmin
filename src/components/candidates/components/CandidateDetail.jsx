@@ -13,6 +13,7 @@ const CandidateDetail = () => {
   const [message, setMessage] = useState("");
 
   const [fullName, setFullName] = useState("");
+  const [cv, setCv] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
@@ -63,6 +64,7 @@ const CandidateDetail = () => {
         setFullName(res.data.fullName);
         setEmail(res.data.email);
         setPhone(res.data.phone);
+        setCv(res.data.cv);
         setCoverLetter(res.data.coverLetter);
         setAnswer1(res.data.answer1);
         setAnswer2(res.data.answer2);
@@ -92,6 +94,10 @@ const CandidateDetail = () => {
           setMessage("Please Reload page ...");
         }, 15000);
       });
+  };
+
+  const handleResumeBlank = (cv) => {
+    window.open(cv, "_blank");
   };
 
   // const handleDeleteConfrim = async (id) => {
@@ -166,9 +172,19 @@ const CandidateDetail = () => {
                       <div className="text-blue space-y-3">
                         <div className="flex flex-col gap-1">
                           <p className="text-lg font-normal">
-                            CV:
-                            <button>
-                              <a href={"firebase"} target="_blank"></a>
+                            CV: &nbsp; &nbsp; &nbsp;
+                            <button
+                              onClick={() => handleResumeBlank(cv)}
+                              class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                            >
+                              <svg
+                                class="fill-current w-4 h-4 mr-2"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                              </svg>
+                              <span>Download CV</span>
                             </button>
                           </p>
                         </div>
