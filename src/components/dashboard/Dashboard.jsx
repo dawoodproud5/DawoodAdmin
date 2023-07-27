@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../Assets/Images/logo.png";
 import jwtDecode from "jwt-decode";
 import SideNavLinks from "../resuable/SideNavLinks";
+import { Card } from "antd";
 // import ceodawoodproud2 from "./Assets/Images/ceodawoodproud2.png"
+import "./css/dashboard.css";
+import { BsFillBagDashFill } from "react-icons/bs";
+import axios from "axios";
+import hostUrl from "../Assets/Apis";
+import CardLoader from "../resuable/CardLoader";
 
 const Dashboard = () => {
+  const [clients, setClients] = useState("");
+  const [candidates, setCandidates] = useState("");
+  const [emails, setEmails] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const userToken = localStorage.getItem("token");
   const jwt = jwtDecode(userToken);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`${hostUrl}/api/length/card`)
+      .then((res) => {
+        setClients(res.data.length.clientInfoCount);
+        setCandidates(res.data.length.candidateApplyJobCount);
+        setEmails(res.data.length.registeredClientsCount);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
@@ -52,9 +79,179 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="mx-auto w-full">
-              <h1>Content Dashbord</h1>
-              <div class="container mx-auto">
-                <div className="row"></div>
+              <h1
+                style={{
+                  fontSize: "50px",
+                  color: "#001E2B",
+                  textAlign: "center",
+                  marginTop: "30px",
+                  marginBottom: "25px",
+                }}
+              >
+                Welcome :{" "}
+                <b>
+                  <u> {jwt.name} </u>
+                </b>
+              </h1>
+              <div style={{ display: "flex", justifyContent: "space-around" }}>
+                <Card style={{ width: "350px" }} className="shadow-lg">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <div className="">
+                      <BsFillBagDashFill className="text-primary icon_design-postjob" />
+                    </div>
+                    <div className="">
+                      {loading ? (
+                        <>
+                          <h4
+                            style={{
+                              fontSize: "36px",
+                              fontWeight: "700",
+                              display: "flex",
+                              justifyContent: "end",
+                              color: "#1967D2",
+                            }}
+                          >
+                            <CardLoader />
+                          </h4>
+                        </>
+                      ) : (
+                        <h4
+                          style={{
+                            fontSize: "36px",
+                            fontWeight: "700",
+                            display: "flex",
+                            justifyContent: "end",
+                            color: "#1967D2",
+                          }}
+                        >
+                          {clients}
+                        </h4>
+                      )}
+
+                      <p
+                        style={{
+                          fontSize: "15px",
+                          color: "#202124",
+                          lineHeight: "26px",
+                        }}
+                      >
+                        Clients
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+                <Card style={{ width: "350px" }} className="shadow-lg">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <div className="">
+                      <BsFillBagDashFill className=" icon_design-postjob_red" />
+                    </div>
+                    <div className="">
+                      {loading ? (
+                        <>
+                          {" "}
+                          <h4
+                            style={{
+                              fontSize: "36px",
+                              fontWeight: "700",
+                              display: "flex",
+                              justifyContent: "end",
+                              color: "#DC3545",
+                            }}
+                          >
+                            <CardLoader />
+                          </h4>
+                        </>
+                      ) : (
+                        <>
+                          <h4
+                            style={{
+                              fontSize: "36px",
+                              fontWeight: "700",
+                              display: "flex",
+                              justifyContent: "end",
+                              color: "#DC3545",
+                            }}
+                          >
+                            {candidates}
+                          </h4>
+                        </>
+                      )}
+
+                      <p
+                        style={{
+                          fontSize: "15px",
+                          color: "#202124",
+                          lineHeight: "26px",
+                        }}
+                      >
+                        Candidates
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+                <Card style={{ width: "350px" }} className="shadow-lg">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                    }}
+                  >
+                    <div className="">
+                      <BsFillBagDashFill className="text-primary icon_design-postjob_yellow" />
+                    </div>
+                    <div className="">
+                      {loading ? (
+                        <>
+                          <h4
+                            style={{
+                              fontSize: "36px",
+                              fontWeight: "700",
+                              display: "flex",
+                              justifyContent: "end",
+                              color: "#C7C706",
+                            }}
+                          >
+                            <CardLoader />
+                          </h4>
+                        </>
+                      ) : (
+                        <>
+                          <h4
+                            style={{
+                              fontSize: "36px",
+                              fontWeight: "700",
+                              display: "flex",
+                              justifyContent: "end",
+                              color: "#C7C706",
+                            }}
+                          >
+                            {emails}
+                          </h4>
+                        </>
+                      )}
+
+                      <p
+                        style={{
+                          fontSize: "15px",
+                          color: "#202124",
+                          lineHeight: "26px",
+                        }}
+                      >
+                        Emails
+                      </p>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
