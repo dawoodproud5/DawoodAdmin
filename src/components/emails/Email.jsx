@@ -31,7 +31,6 @@ const Email = () => {
     axios
       .get(`${hostUrl}/api/register/get/email`, config)
       .then((res) => {
-        console.log("res email : ", res);
         setEmail(res.data.emails);
         setOpen(false);
       })
@@ -39,6 +38,20 @@ const Email = () => {
         setTimeout(() => {
           setMessage("Please Reload page ...");
         }, 15000);
+      });
+  };
+
+  const handleDeleteConfrim = async (id) => {
+    setOpen(true);
+    await axios
+      .delete(`${hostUrl}/api/register/delete/${id}`)
+      .then((res) => {
+        console.log(res);
+        fetchClients();
+      })
+      .catch((err) => {
+        console.log(err);
+        setOpen(false);
       });
   };
 
@@ -109,6 +122,9 @@ const Email = () => {
                                 <th scope="col" className="px-6 py-3">
                                   Date
                                 </th>
+                                <th scope="col" className="px-6 py-3">
+                                  Action
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -118,6 +134,7 @@ const Email = () => {
                                     key={email._id}
                                     email={email}
                                     index={index}
+                                    handleDeleteConfrim={handleDeleteConfrim}
                                   />
                                 );
                               })}

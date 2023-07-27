@@ -28,22 +28,29 @@ const Candidate = ({ candidate, handleDeleteConfrim }) => {
 
   const deleteClient = () => {
     setDeletePopup(true);
-  }
+  };
 
   const hideDeletePopup = () => {
-    setDeletePopup(false)
-  }
+    setDeletePopup(false);
+  };
 
   return (
     <>
-    <DeleteLoader deletePopup={deletePopup} hideDeletePopup={hideDeletePopup} handleDeleteConfrim={() => handleDeleteConfrim(candidate._id)} />
+      <DeleteLoader
+        deletePopup={deletePopup}
+        hideDeletePopup={hideDeletePopup}
+        handleDeleteConfrim={() => handleDeleteConfrim(candidate._id)}
+      />
       <tr className="bg-white border-b  dark:border-gray-300">
         <th className="px-6 py-4">{candidate.fullName}</th>
         <td className="px-6 py-4">{candidate.email}</td>
         <td className="px-6 py-4">{candidate.phone}</td>
         <td className="px-6 py-4">{formatedDAte}</td>
         <td>
-          <Link to={`/candidate/detail/${candidate._id}`} className="text-[blue]">
+          <Link
+            to={`/candidate/detail/${candidate._id}`}
+            className="text-[blue]"
+          >
             {" "}
             <span>View</span>{" "}
           </Link>
