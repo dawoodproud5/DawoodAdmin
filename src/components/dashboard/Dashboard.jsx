@@ -53,16 +53,6 @@ const Dashboard = () => {
               </div>
               <SideNavLinks />
             </div>
-
-            {/* log out button */}
-
-            <button
-              onClick={onclick}
-              className=" flex gap-2 items-center justify-center py-2 self-start ml-2 font-semibold"
-            >
-              <p>Log out </p>
-              {/* <HiOutlineLogout size={15} /> */}
-            </button>
           </div>
           {/* <DashBoardSidebar /> */}
           <div className="flex flex-col justify-start col-span-10 w-full">
@@ -94,164 +84,225 @@ const Dashboard = () => {
                 </b>
               </h1>
               <div style={{ display: "flex", justifyContent: "space-around" }}>
-                <Card style={{ width: "350px" }} className="shadow-lg">
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <div className="">
-                      <BsFillBagDashFill className="text-primary icon_design-postjob" />
-                    </div>
-                    <div className="">
-                      {loading ? (
-                        <>
-                          <h4
-                            style={{
-                              fontSize: "36px",
-                              fontWeight: "700",
-                              display: "flex",
-                              justifyContent: "end",
-                              color: "#1967D2",
-                            }}
-                          >
-                            <CardLoader />
-                          </h4>
-                        </>
-                      ) : (
-                        <h4
-                          style={{
-                            fontSize: "36px",
-                            fontWeight: "700",
-                            display: "flex",
-                            justifyContent: "end",
-                            color: "#1967D2",
-                          }}
-                        >
-                          {clients}
-                        </h4>
-                      )}
-
-                      <p
+                {jwt.superAdmin === true ? (
+                  <>
+                    <Card style={{ width: "350px" }} className="shadow-lg">
+                      <div
                         style={{
-                          fontSize: "15px",
-                          color: "#202124",
-                          lineHeight: "26px",
+                          display: "flex",
+                          justifyContent: "space-around",
                         }}
                       >
-                        Clients
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-                <Card style={{ width: "350px" }} className="shadow-lg">
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <div className="">
-                      <BsFillBagDashFill className=" icon_design-postjob_red" />
-                    </div>
-                    <div className="">
-                      {loading ? (
-                        <>
-                          {" "}
-                          <h4
-                            style={{
-                              fontSize: "36px",
-                              fontWeight: "700",
-                              display: "flex",
-                              justifyContent: "end",
-                              color: "#DC3545",
-                            }}
-                          >
-                            <CardLoader />
-                          </h4>
-                        </>
-                      ) : (
-                        <>
-                          <h4
-                            style={{
-                              fontSize: "36px",
-                              fontWeight: "700",
-                              display: "flex",
-                              justifyContent: "end",
-                              color: "#DC3545",
-                            }}
-                          >
-                            {candidates}
-                          </h4>
-                        </>
-                      )}
+                        <div className="">
+                          <BsFillBagDashFill className="text-primary icon_design-postjob" />
+                        </div>
+                        <div className="">
+                          {loading ? (
+                            <>
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#1967D2",
+                                }}
+                              >
+                                <CardLoader />
+                              </h4>
+                            </>
+                          ) : (
+                            <h4
+                              style={{
+                                fontSize: "36px",
+                                fontWeight: "700",
+                                display: "flex",
+                                justifyContent: "end",
+                                color: "#1967D2",
+                              }}
+                            >
+                              {clients}
+                            </h4>
+                          )}
 
-                      <p
+                          <p
+                            style={{
+                              fontSize: "15px",
+                              color: "#202124",
+                              lineHeight: "26px",
+                            }}
+                          >
+                            Clients
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                    <Card style={{ width: "350px" }} className="shadow-lg">
+                      <div
                         style={{
-                          fontSize: "15px",
-                          color: "#202124",
-                          lineHeight: "26px",
+                          display: "flex",
+                          justifyContent: "space-around",
                         }}
                       >
-                        Candidates
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-                <Card style={{ width: "350px" }} className="shadow-lg">
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <div className="">
-                      <BsFillBagDashFill className="text-primary icon_design-postjob_yellow" />
-                    </div>
-                    <div className="">
-                      {loading ? (
-                        <>
-                          <h4
-                            style={{
-                              fontSize: "36px",
-                              fontWeight: "700",
-                              display: "flex",
-                              justifyContent: "end",
-                              color: "#C7C706",
-                            }}
-                          >
-                            <CardLoader />
-                          </h4>
-                        </>
-                      ) : (
-                        <>
-                          <h4
-                            style={{
-                              fontSize: "36px",
-                              fontWeight: "700",
-                              display: "flex",
-                              justifyContent: "end",
-                              color: "#C7C706",
-                            }}
-                          >
-                            {emails}
-                          </h4>
-                        </>
-                      )}
+                        <div className="">
+                          <BsFillBagDashFill className=" icon_design-postjob_red" />
+                        </div>
+                        <div className="">
+                          {loading ? (
+                            <>
+                              {" "}
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#DC3545",
+                                }}
+                              >
+                                <CardLoader />
+                              </h4>
+                            </>
+                          ) : (
+                            <>
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#DC3545",
+                                }}
+                              >
+                                {candidates}
+                              </h4>
+                            </>
+                          )}
 
-                      <p
+                          <p
+                            style={{
+                              fontSize: "15px",
+                              color: "#202124",
+                              lineHeight: "26px",
+                            }}
+                          >
+                            Candidates
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                    <Card style={{ width: "350px" }} className="shadow-lg">
+                      <div
                         style={{
-                          fontSize: "15px",
-                          color: "#202124",
-                          lineHeight: "26px",
+                          display: "flex",
+                          justifyContent: "space-around",
                         }}
                       >
-                        Emails
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                        <div className="">
+                          <BsFillBagDashFill className="text-primary icon_design-postjob_yellow" />
+                        </div>
+                        <div className="">
+                          {loading ? (
+                            <>
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#C7C706",
+                                }}
+                              >
+                                <CardLoader />
+                              </h4>
+                            </>
+                          ) : (
+                            <>
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#C7C706",
+                                }}
+                              >
+                                {emails}
+                              </h4>
+                            </>
+                          )}
+
+                          <p
+                            style={{
+                              fontSize: "15px",
+                              color: "#202124",
+                              lineHeight: "26px",
+                            }}
+                          >
+                            Emails
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  </>
+                ) : (
+                  <>
+                    <Card style={{ width: "350px" }} className="shadow-lg">
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-around",
+                        }}
+                      >
+                        <div className="">
+                          <BsFillBagDashFill className=" icon_design-postjob_red" />
+                        </div>
+                        <div className="">
+                          {loading ? (
+                            <>
+                              {" "}
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#DC3545",
+                                }}
+                              >
+                                <CardLoader />
+                              </h4>
+                            </>
+                          ) : (
+                            <>
+                              <h4
+                                style={{
+                                  fontSize: "36px",
+                                  fontWeight: "700",
+                                  display: "flex",
+                                  justifyContent: "end",
+                                  color: "#DC3545",
+                                }}
+                              >
+                                {candidates}
+                              </h4>
+                            </>
+                          )}
+
+                          <p
+                            style={{
+                              fontSize: "15px",
+                              color: "#202124",
+                              lineHeight: "26px",
+                            }}
+                          >
+                            Candidates
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  </>
+                )}
               </div>
             </div>
           </div>

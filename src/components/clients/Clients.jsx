@@ -81,16 +81,6 @@ const Clients = () => {
 
               <SideNavLinks />
             </div>
-
-            {/* log out button */}
-
-            <button
-              onClick={onclick}
-              className=" flex gap-2 items-center justify-center py-2 self-start ml-2 font-semibold"
-            >
-              <p>Log out </p>
-              {/* <HiOutlineLogout size={15} /> */}
-            </button>
           </div>
           {/* <DashBoardSidebar /> */}
           <div className="flex flex-col justify-start col-span-10 w-full">
