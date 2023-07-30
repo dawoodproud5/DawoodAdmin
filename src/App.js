@@ -9,6 +9,7 @@ import Candidates from "./components/candidates/Candidates";
 import ClientDetail from "./components/clients/components/ClientDetail";
 import CandidateDetail from "./components/candidates/components/CandidateDetail";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Logout from "./components/resuable/Logout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/clients/email" element={<Email />} />
             <Route path="/dashborad" element={<Dashboard />} />
             <Route path="/add/admin" element={<Admin />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/" element={<Home />} />

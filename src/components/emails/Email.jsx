@@ -7,6 +7,7 @@ import hostUrl from "../Assets/Apis";
 import Loader from "../resuable/Loader";
 import RenderEmail from "./RenderEmail";
 // import ceodawoodproud2 from "./Assets/Images/ceodawoodproud2.png"
+import { Link } from "react-router-dom";
 
 const Email = () => {
   const [email, setEmail] = useState([]);
@@ -84,9 +85,13 @@ const Email = () => {
 
               {/* <img src="./Assets/Images/ceodawoodproud2.png" alt="dawood" /> */}
               <div>
-                {" "}
-                <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
-                <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                <span style={{ marginRight: "20px" }}>
+                  <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
+                  <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                </span>
+                <Link to="/logout" style={{ color: "red", cursor: "pointer" }}>
+                  <u> Logout </u>
+                </Link>
               </div>
             </div>
             <div className="mx-auto w-full">

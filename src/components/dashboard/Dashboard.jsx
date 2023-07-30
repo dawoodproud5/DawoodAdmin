@@ -9,6 +9,7 @@ import { BsFillBagDashFill } from "react-icons/bs";
 import axios from "axios";
 import hostUrl from "../Assets/Apis";
 import CardLoader from "../resuable/CardLoader";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [clients, setClients] = useState("");
@@ -63,9 +64,13 @@ const Dashboard = () => {
 
               {/* <img src="./Assets/Images/ceodawoodproud2.png" alt="dawood" /> */}
               <div>
-                {" "}
-                <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
-                <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                <span style={{ marginRight: "20px" }}>
+                  <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
+                  <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                </span>
+                <Link to="/logout" style={{ color: "red", cursor: "pointer" }}>
+                  <u> Logout </u>
+                </Link>
               </div>
             </div>
             <div className="mx-auto w-full">

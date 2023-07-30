@@ -6,6 +6,7 @@ import Candidate from "./components/Candidate";
 import SideNavLinks from "../resuable/SideNavLinks";
 import logo from "../Assets/Images/logo.png";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const Candidates = () => {
   const [candidates, setCandidates] = useState([]);
@@ -90,9 +91,13 @@ const Candidates = () => {
 
               {/* <img src="./Assets/Images/ceodawoodproud2.png" alt="dawood" /> */}
               <div>
-                {" "}
-                <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
-                <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                <span style={{ marginRight: "20px" }}>
+                  <span style={{ color: "dimgray" }}> Logged in as : </span>{" "}
+                  <b style={{ fontFamily: "koHo" }}> {jwt.name} </b>{" "}
+                </span>
+                <Link to="/logout" style={{ color: "red", cursor: "pointer" }}>
+                  <u> Logout </u>
+                </Link>
               </div>
             </div>
             <div className="mx-auto w-full">
