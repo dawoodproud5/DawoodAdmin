@@ -65,8 +65,15 @@ const Candidates = () => {
     <>
       <Loader open={open} message={message} />
       <div className="font-inter">
-        <div className="text-black bg-[white] grid grid-cols-12 min-h-screen ">
-          <div className="w-full flex flex-col justify-between items-center bg-[#001e2b]  text-white col-span-2 ">
+        <div className="text-black bg-[white] grid grid-cols-12 min-h-screen">
+          <div
+            className="w-full flex flex-col justify-between items-center bg-[#001e2b]  text-white col-span-2 "
+            style={{
+              maxHeight: "100vh",
+              position: "sticky",
+              top: 0,
+            }}
+          >
             <div className="w-full p-3 text-base font-bold  space-y-8">
               <div className=" mx-auto ">
                 <img src={logo} alt="logo" />
